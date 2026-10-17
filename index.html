@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#070914">
+<title>NEBULA ZERO — Beyond Reality</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap');
+
+:root{
+  --bg:#070914;--cyan:#65f7ff;--pink:#ff5ce9;
+  --violet:#9a7bff;--white:#f5f5ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--bg);color:var(--white);
+ font-family:Vazirmatn,Tahoma,sans-serif;overflow-x:hidden;
+}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+#universe{position:fixed;inset:0;width:100%;height:100%;z-index:-2}
+.aurora{
+ position:fixed;inset:-30%;z-index:-3;pointer-events:none;
+ background:
+ radial-gradient(ellipse at 18% 22%,#4331a52b,transparent 35%),
+ radial-gradient(ellipse at 82% 60%,#00e5ff17,transparent 38%),
+ radial-gradient(ellipse at 60% 10%,#fc40d21b,transparent 32%);
+ animation:aurora 16s ease-in-out infinite alternate;
+}
+@keyframes aurora{to{transform:translate(4%,-3%) rotate(8deg) scale(1.12)}}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.035;
+ background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+nav{
+ position:fixed;z-index:20;top:12px;left:4%;right:4%;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;
+ padding:12px 17px;border:1px solid #ffffff17;border-radius:18px;
+ background:#080b19b8;backdrop-filter:blur(22px);
+}
+.logo{font-size:14px;letter-spacing:2px;font-weight:900;direction:ltr}
+.logo i{color:var(--cyan);font-style:normal}
+.nav-actions{display:flex;gap:7px}
+.mini{
+ background:#ffffff08;border:1px solid #ffffff20;border-radius:12px;
+ padding:9px 12px;font-size:12px;transition:.25s
+}
+.mini:hover{border-color:var(--cyan);transform:translateY(-2px)}
+main{max-width:1250px;margin:auto;padding:0 22px}
+.hero{
+ min-height:100svh;display:grid;place-items:center;text-align:center;
+ position:relative;padding:115px 0 65px;
+}
+.hero-inner{width:100%;position:relative}
+.eyebrow{
+ display:inline-flex;align-items:center;gap:8px;color:var(--cyan);
+ font-size:11px;letter-spacing:2px;border:1px solid #65f7ff44;
+ padding:8px 15px;border-radius:99px;background:#65f7ff09;
+}
+.pulse{width:7px;height:7px;background:#65f7ff;border-radius:50%;
+ box-shadow:0 0 16px var(--cyan);animation:blink 1.5s infinite}
+@keyframes blink{50%{opacity:.2;transform:scale(.6)}}
+h1{
+ font-size:clamp(46px,10vw,112px);line-height:1.12;
+ margin:24px 0 15px;font-weight:900;letter-spacing:-3px;
+}
+.gradient{
+ color:transparent;background:linear-gradient(100deg,#fff 5%,#65f7ff 35%,#aa8aff 65%,#ff72df 90%);
+ background-clip:text;-webkit-background-clip:text;
+}
+.subtitle{color:#b4bad0;line-height:2;font-size:14px;max-width:540px;margin:0 auto}
+.hero-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:27px 0}
+.primary,.secondary{
+ border-radius:14px;padding:13px 22px;border:1px solid #ffffff24;
+ transition:transform .25s,box-shadow .25s;
+}
+.primary{background:linear-gradient(120deg,#64e9fa,#9c8bff);color:#080a17;font-weight:900}
+.secondary{background:#ffffff08}
+.primary:hover,.secondary:hover{transform:translateY(-4px);box-shadow:0 12px 45px #65f7ff22}
+.orbit-stage{height:210px;position:relative;display:grid;place-items:center;perspective:800px}
+.core{
+ width:92px;height:92px;border-radius:30% 70% 65% 35%;
+ background:radial-gradient(circle at 30% 25%,#fff,#69f5ff 20%,#7864fa 50%,#190d48 80%);
+ box-shadow:0 0 45px #65f7ff77,0 0 110px #6a4dff33,inset -12px -12px 25px #08051f;
+ transform:rotateX(15deg);animation:corefloat 4s ease-in-out infinite alternate;
+ position:relative;
+}
+.core:after{content:"";position:absolute;inset:-23px;border:1px solid #65f7ff55;
+ border-radius:50%;transform:rotateX(65deg)}
+.ring{position:absolute;width:220px;height:76px;border:1px solid #a69bff66;
+ border-radius:50%;transform:rotate(-20deg);animation:spin 12s linear infinite}
+.ring.r2{width:270px;height:110px;transform:rotate(55deg);border-color:#ff5ce955;animation-duration:17s;animation-direction:reverse}
+@keyframes spin{to{rotate:360deg}}
+@keyframes corefloat{to{transform:translateY(-12px) rotateX(28deg) rotateZ(12deg)}}
+.scrollhint{color:#69718e;font-size:10px;letter-spacing:2px;margin-top:8px}
+.section{padding:88px 0;position:relative}
+.section-head{margin-bottom:30px}
+.kicker{font-size:11px;letter-spacing:2px;color:var(--cyan)}
+h2{font-size:clamp(27px,5vw,46px);margin:10px 0;font-weight:900}
+.muted{color:#a2a9c1;font-size:13px;line-height:2}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.panel{
+ border:1px solid #ffffff17;border-radius:24px;
+ background:linear-gradient(145deg,#ffffff0b,#ffffff02);
+ box-shadow:inset 0 1px #ffffff08;
+ backdrop-filter:blur(15px);position:relative;overflow:hidden;
+ transition:border-color .3s,transform .35s,background .3s;
+}
+.panel:hover{border-color:#65f7ff62;background:#ffffff0c}
+.portal{padding:22px;min-height:245px;cursor:pointer;isolation:isolate}
+.portal:before{
+ content:"";position:absolute;width:180px;height:180px;left:-70px;bottom:-90px;
+ background:var(--glow,#65f7ff);filter:blur(75px);opacity:.15;z-index:-1;
+ transition:opacity .3s
+}
+.portal:hover:before{opacity:.38}
+.portal-art{height:110px;display:grid;place-items:center;perspective:500px}
+.portal-art span{font-size:62px;filter:drop-shadow(0 0 20px var(--glow,#65f7ff));
+ display:block;transition:transform .5s}
+.portal:hover .portal-art span{transform:rotateY(22deg) rotateX(-12deg) scale(1.18)}
+.portal h3{font-size:17px;margin:12px 0 5px}
+.portal p{font-size:12px;color:#a5adc6;line-height:1.9;margin:0}
+.open-label{display:inline-block;color:var(--glow,#65f7ff);font-size:11px;margin-top:13px}
+.feature{padding:24px}
+.feature h3{font-size:17px;margin:0 0 9px}
+.stat{font-size:31px;font-weight:900;color:var(--cyan)}
+.badge{font-size:10px;color:#aab1ca;border:1px solid #ffffff20;padding:5px 9px;border-radius:8px}
+.flexline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.console{padding:22px}
+.console-screen{
+ min-height:120px;border-radius:17px;padding:18px;
+ background:#050811;border:1px solid #65f7ff24;
+ display:flex;align-items:center;justify-content:center;text-align:center;
+ font-size:17px;line-height:2;
+}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.actions button{flex:1;min-width:100px}
+.physics-layout{display:grid;grid-template-columns:1fr 280px;gap:16px}
+#physics{
+ display:block;width:100%;height:330px;border-radius:20px;
+ background:radial-gradient(ellipse at 50% 45%,#171e3c,#060812 70%);
+ touch-action:pan-y;cursor:crosshair
+}
+.controls{padding:20px}
+.controls button{width:100%;margin-top:10px}
+.bar{height:5px;background:#ffffff12;border-radius:8px;overflow:hidden;margin:10px 0 18px}
+.bar span{display:block;height:100%;width:70%;background:linear-gradient(90deg,var(--cyan),var(--pink))}
+.lab-note{font-size:11px;color:#909ab6;line-height:2}
+.character-wrap{display:grid;grid-template-columns:210px 1fr;gap:22px;align-items:center;padding:28px}
+.avatar{
+ width:155px;height:175px;position:relative;margin:auto;
+ display:grid;place-items:center;filter:drop-shadow(0 0 28px #a18aff35);
+ animation:avatarfloat 4s ease-in-out infinite;
+}
+@keyframes avatarfloat{50%{transform:translateY(-8px) rotate(2deg)}}
+.bot{position:relative;width:112px;height:115px;border-radius:42% 42% 36% 36%;
+ background:linear-gradient(145deg,#e8faff,#9b8cff 55%,#5345a5);
+ box-shadow:inset -10px -8px 18px #1b174c77,0 0 25px #9d89ff55}
+.bot:before{content:"";position:absolute;top:29px;left:16px;right:16px;height:39px;
+ border-radius:18px;background:#11162b;box-shadow:inset 0 0 10px #000}
+.eye{position:absolute;top:43px;width:10px;height:13px;border-radius:50%;
+ background:var(--cyan);box-shadow:0 0 12px var(--cyan);z-index:2}
+.eye.e1{right:37px}.eye.e2{left:37px}
+.mouth{position:absolute;top:72px;left:43px;width:26px;height:8px;
+ border-bottom:3px solid #24204b;border-radius:50%;z-index:2}
+.antenna{position:absolute;width:3px;height:23px;background:#a99aff;top:-19px;left:54px}
+.antenna:after{content:"";position:absolute;width:12px;height:12px;top:-8px;left:-5px;
+ border-radius:50%;background:var(--pink);box-shadow:0 0 17px var(--pink)}
+.dialogue{padding:22px;border:1px solid #ffffff17;border-radius:20px;background:#ffffff05}
+.dialogue h3{margin:0 0 8px}
+#botText{min-height:60px;color:#c2c8dc;line-height:2;font-size:13px}
+.progress-dots{display:flex;gap:6px;margin:15px 0}
+.progress-dots span{width:18px;height:3px;background:#ffffff20;border-radius:5px}
+.progress-dots span.active{background:var(--cyan)}
+.gamebox{padding:25px;text-align:center}
+.game-icon{font-size:55px;margin:12px}
+.game-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:16px}
+#reactionPad{
+ display:grid;place-items:center;min-height:150px;border-radius:19px;
+ background:#101326;border:1px solid #ffffff18;font-weight:900;font-size:22px;
+ cursor:pointer;user-select:none;transition:background .15s
+}
+#reactionPad.ready{background:#10352f;border-color:#65f7ff}
+#reactionPad.go{background:#40233e;border-color:#ff5ce9}
+.roulette{font-size:65px;margin:16px;filter:drop-shadow(0 0 20px #ffcc6633)}
+.secret{padding:25px;text-align:center;border-style:dashed}
+#secretCode{letter-spacing:5px;color:var(--cyan);font-weight:900}
+.footer{padding:50px 0 35px;border-top:1px solid #ffffff12;text-align:center;color:#747d9c;font-size:11px}
+.toast{
+ position:fixed;bottom:22px;left:50%;transform:translate(-50%,30px);
+ background:#101629;border:1px solid #65f7ff55;border-radius:15px;
+ padding:13px 19px;font-size:12px;z-index:99;opacity:0;pointer-events:none;
+ transition:.3s;box-shadow:0 10px 40px #0008;max-width:90vw;text-align:center
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal{
+ position:fixed;inset:0;background:#03040bd9;backdrop-filter:blur(15px);
+ z-index:50;display:none;align-items:center;justify-content:center;padding:18px
+}
+.modal.show{display:flex;animation:fadein .2s}
+.modal-card{width:min(650px,100%);max-height:85svh;overflow:auto;padding:25px;
+ background:#0c1021;border:1px solid #ffffff25;border-radius:25px;
+ box-shadow:0 20px 100px #000a}
+.modal-close{float:left;background:#ffffff0b;border:1px solid #ffffff20;border-radius:10px;padding:7px 12px}
+.modal-content{clear:both;padding-top:12px}
+.big-emoji{font-size:70px;text-align:center;margin:15px}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.flash{animation:flash .35s}
+@keyframes flash{50%{filter:brightness(2.5)}}
+@media(max-width:750px){
+ main{padding:0 15px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .portal{padding:15px;min-height:220px}
+ .portal-art{height:85px}.portal-art span{font-size:49px}
+ .portal h3{font-size:14px}
+ .physics-layout{grid-template-columns:1fr}
+ #physics{height:270px}
+ .character-wrap{grid-template-columns:1fr;padding:20px}
+ .avatar{height:140px}
+ .section{padding:65px 0}
+ nav{left:10px;right:10px;padding:10px}
+ .logo{font-size:12px}.mini{padding:8px;font-size:11px}
+ h1{letter-spacing:-1.5px}
+}
+@media(max-width:390px){
+ .grid{grid-template-columns:1fr}
+ .portal{min-height:190px}
+ .portal-art{height:65px}
+ .nav-actions .mini:last-child{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<canvas id="universe"></canvas>
+<div class="noise"></div>
+
+<nav>
+ <div class="logo">NEBULA <i>ZERO</i></div>
+ <div class="nav-actions">
+  <button class="mini" id="soundBtn">♫ صدا: خاموش</button>
+  <button class="mini" id="chaosBtn">⚡ آشوب</button>
+  <button class="mini" id="fullBtn">⛶</button>
+ </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+ <div class="hero-inner">
+  <div class="eyebrow"><span class="pulse"></span> REALITY.EXE HAS STOPPED WORKING</div>
+  <h1>خوش اومدی به<br><span class="gradient">جایی که نیست.</span></h1>
+  <p class="subtitle">
+   اینجا نه یه سایت معمولیه، نه یه بازی معمولی.
+   اینجا قوانین یه کم مشکل دارن؛ هر چیزی رو لمس کنی ممکنه داستان شروع بشه.
+  </p>
+  <div class="hero-buttons">
+   <button class="primary" onclick="enterWorld()">🚀 ورود به جهان</button>
+   <button class="secondary" onclick="openPortal('surprise')">🎲 یه اتفاق عجیب</button>
+  </div>
+  <div class="orbit-stage" id="orbitStage">
+   <div class="ring"></div><div class="ring r2"></div><div class="core" id="core"></div>
+  </div>
+  <div class="scrollhint">SCROLL TO BREAK REALITY ↓</div>
+ </div>
+</section>
+
+<section class="section" id="worlds">
+ <div class="section-head">
+  <div class="kicker">01 / SELECT YOUR DESTINATION</div>
+  <h2>شش دروازه. شش قانون متفاوت.</h2>
+  <p class="muted">هیچ‌کدوم فقط یه کارت نیستن؛ هر کدوم یه تجربه جداست.</p>
+ </div>
+ <div class="grid">
+  <article class="panel portal" style="--glow:#65f7ff" onclick="openPortal('physics')">
+   <div class="portal-art"><span>🪐</span></div>
+   <h3>اتاق گرانش</h3><p>اجسام رو پرت کن. برخوردها رو تماشا کن. قوانین فیزیک رو به هم بریز.</p>
+   <span class="open-label">OPEN GRAVITY LAB ↗</span>
+  </article>
+  <article class="panel portal" style="--glow:#ff5ce9" onclick="openPortal('character')">
+   <div class="portal-art"><span>🤖</span></div>
+   <h3>موجود ناشناخته</h3><p>با یه ربات عجیب آشنا شو که از قبل یه چیزایی درباره جهان می‌دونه.</p>
+   <span class="open-label">MEET THE CREATURE ↗</span>
+  </article>
+  <article class="panel portal" style="--glow:#ffbd62" onclick="openPortal('surprise')">
+   <div class="portal-art"><span>🎁</span></div>
+   <h3>جعبه ممنوعه</h3><p>شانس، شوخی، پیشگویی مسخره یا یه اتفاق غیرمنتظره. بازش کن ببین چی می‌شه.</p>
+   <span class="open-label">DO YOU DARE? ↗</span>
+  </article>
+  <article class="panel portal" style="--glow:#a78bff" onclick="openPortal('game')">
+   <div class="portal-art"><span>⚡</span></div>
+   <h3>آزمایشگاه واکنش</h3><p>سرعت انگشتت رو بسنج. فقط زود کلیک نکن؛ تقلب رو می‌فهمیم!</p>
+   <span class="open-label">TEST YOUR REFLEX ↗</span>
+  </article>
+  <article class="panel portal" style="--glow:#ff7272" onclick="openPortal('dream')">
+   <div class="portal-art"><span>🔮</span></div>
+   <h3>ماشین رویا</h3><p>یه سؤال عجیب انتخاب کن و جواب کاملاً تصادفی جهان رو بگیر.</p>
+   <span class="open-label">CONSULT THE VOID ↗</span>
+  </article>
+  <article class="panel portal" style="--glow:#79ffb3" onclick="openPortal('secret')">
+   <div class="portal-art"><span>🗝️</span></div>
+   <h3>اتاق قفل‌شده</h3><p>کد مخفی رو پیدا کن. شاید جهان بیشتر از چیزی که فکر می‌کنی راز داشته باشه.</p>
+   <span class="open-label">CLASSIFIED AREA ↗</span>
+  </article>
+ </div>
+</section>
+
+<section class="section" id="physics">
+ <div class="section-head">
+  <div class="kicker">02 / INTERACTIVE PHYSICS</div>
+  <h2>گرانش رو به بازی بگیر.</h2>
+  <p class="muted">روی فضای آزمایش ضربه بزن یا لمس کن تا گوی بسازی. گوی‌ها حرکت می‌کنن، به هم برخورد می‌کنن و از دیواره‌ها برمی‌گردن.</p>
+ </div>
+ <div class="physics-layout">
+  <div class="panel" style="padding:7px">
+   <canvas id="physicsCanvas" aria-label="آزمایشگاه گوی‌های متحرک"></canvas>
+  </div>
+  <div class="panel controls">
+   <div class="flexline"><b>کنترل جهان</b><span class="badge">LIVE SIMULATION</span></div>
+   <p class="muted">قدرت آشوب</p>
+   <input id="gravity" type="range" min="-0.2" max="0.2" step="0.01" value="0.04" style="width:100%;accent-color:#65f7ff">
+   <div class="bar"><span id="powerBar"></span></div>
+   <p class="lab-note">نکته: گوی‌ها رو سریع پشت سر هم بساز. به هم خوردنشون رو ببین. این شبیه‌سازی سبک و سرگرم‌کننده است، نه موتور فیزیک دقیق.</p>
+   <button class="primary" onclick="burstBalls()">💥 انفجار گوی‌ها</button>
+   <button class="secondary" onclick="resetBalls()">↻ شروع دوباره</button>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="character">
+ <div class="section-head">
+  <div class="kicker">03 / A CREATURE FROM ELSEWHERE</div>
+  <h2>این یکی نباید بیدار می‌شد.</h2>
+ </div>
+ <div class="panel character-wrap">
+  <div class="avatar" id="avatar">
+   <div class="antenna"></div><div class="bot">
+    <div class="eye e1"></div><div class="eye e2"></div><div class="mouth"></div>
+   </div>
+  </div>
+  <div class="dialogue">
+   <div class="flexline"><h3>اسم من زِروئه.</h3><span class="badge">AI? NAH.</span></div>
+   <p id="botText">سلام موجود زمینی. من داشتم جهان رو آپدیت می‌کردم که تو اومدی. حالا چی می‌خوای؟</p>
+   <div class="progress-dots"><span class="active"></span><span></span><span></span><span></span></div>
+   <div class="actions">
+    <button class="primary" onclick="botTalk('joke')">یه شوخی بگو 😂</button>
+    <button class="secondary" onclick="botTalk('secret')">یه راز بگو 👁️</button>
+    <button class="secondary" onclick="botTalk('dance')">رقص برو 🪩</button>
+    <button class="secondary" onclick="botTalk('roast')">مسخره‌م کن 💀</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="games">
+ <div class="section-head">
+  <div class="kicker">04 / HUMAN VS MACHINE</div>
+  <h2>فکر می‌کنی سریعی؟ ثابتش کن.</h2>
+  <p class="muted">وقتی صفحه سبز شد لمس کن. زودتر بزنی، می‌بازی.</p>
+ </div>
+ <div class="grid">
+  <div class="panel gamebox">
+   <div class="game-icon">⏱️</div>
+   <h3>جنگ اعصاب</h3>
+   <p class="muted">واکنش واقعی انگشتت رو آزمایش کن.</p>
+   <div id="reactionPad" onclick="reactionClick()">برای شروع لمس کن</div>
+   <p id="reactionResult" class="muted">بهترین زمانت رو ثبت کن.</p>
+  </div>
+  <div class="panel gamebox">
+   <div class="game-icon">🧠</div>
+   <h3>عدد مخفی</h3>
+   <p class="muted">عدد بین ۱ تا ۲۰ رو پیدا کن. چند حدس لازم داری؟</p>
+   <div class="flexline" style="margin:18px 0">
+    <input id="guessInput" type="number" min="1" max="20" placeholder="عدد تو..." style="width:65%;min-width:0;padding:12px;border-radius:12px;background:#101326;border:1px solid #ffffff25;color:white;font:inherit">
+    <button class="primary" onclick="guessNumber()">حدس!</button>
+   </div>
+   <p id="guessResult" class="muted">یه عدد انتخاب کردم.</p>
+   <button class="secondary" onclick="newNumber()">عدد جدید ↻</button>
+  </div>
+  <div class="panel gamebox">
+   <div class="game-icon">🌀</div>
+   <h3>دکمه آشوب</h3>
+   <p class="muted">این دکمه هیچ هدف منطقی‌ای نداره. دقیقاً به همین دلیل خطرناکه.</p>
+   <div class="roulette" id="chaosEmoji">🌀</div>
+   <button class="primary" onclick="chaos()">قوانین رو بشکن!</button>
+   <p id="chaosText" class="muted">جهان هنوز نسبتاً سر جاشه.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="dream">
+ <div class="section-head">
+  <div class="kicker">05 / THE ORACLE</div>
+  <h2>ماشین پیشگوییِ بی‌منطق.</h2>
+  <p class="muted">یه سؤال تو ذهنت نگه دار. جواب این ماشین هیچ اعتبار پیشگویی نداره؛ فقط قراره بخندیم.</p>
+ </div>
+ <div class="panel console">
+  <div class="console-screen" id="oracleAnswer">جهان منتظر سؤال توئه...</div>
+  <div class="actions">
+   <button class="primary" onclick="oracle()">🔮 جواب بده</button>
+   <button class="secondary" onclick="oracle(true)">🌌 جواب کیهانی</button>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="secret">
+ <div class="section-head">
+  <div class="kicker">06 / RESTRICTED ACCESS</div>
+  <h2>یه چیزی اینجا قایم شده.</h2>
+  <p class="muted">روی لوگو چند بار بزن یا کد رو کشف کن. این یه راز نمایشی داخل همین صفحه است.</p>
+ </div>
+ <div class="panel secret">
+  <div class="big-emoji">🔐</div>
+  <p class="muted">کد چهار رقمی رو وارد کن. سرنخ: شماره‌ای که همیشه از چهار طرف جهان نگاهت می‌کنه.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px">
+   <input id="secretInput" maxlength="4" inputmode="numeric" placeholder="????" style="width:125px;text-align:center;letter-spacing:5px;padding:13px;border-radius:12px;background:#101326;border:1px solid #ffffff25;color:white;font:inherit">
+   <button class="primary" onclick="unlockSecret()">باز کن</button>
+  </div>
+  <p id="secretResult" class="muted">ACCESS: DENIED</p>
+  <p id="secretCode" hidden>YOU FOUND THE VOID.</p>
+ </div>
+</section>
+
+<section class="section" id="surprise">
+ <div class="section-head">
+  <div class="kicker">07 / RANDOMNESS ENGINE</div>
+  <h2>اتفاقی که برنامه‌ریزی نشده بود.</h2>
+ </div>
+ <div class="panel console">
+  <div class="console-screen" id="surpriseBox">این بخش ممکنه بهت لقب بده، یه مأموریت بده یا یه پیام عجیب تحویلت بده.</div>
+  <div class="actions">
+   <button class="primary" onclick="openPortal('surprise')">🎲 دوباره غافلگیرم کن</button>
+   <button class="secondary" onclick="makeConfetti()">✨ بارش ستاره</button>
+   <button class="secondary" onclick="glitchWorld()">👾 گلیچ جهان</button>
+  </div>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="logo">NEBULA <i>ZERO</i></div>
+ <p>BUILT TO FEEL DIFFERENT · VERSION 01</p>
+ <p>جهان دیجیتال تو، قوانین خودت.</p>
+</footer>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="if(event.target===this)closeModal()">
+ <div class="modal-card">
+  <button class="modal-close" onclick="closeModal()">بستن ✕</button>
+  <div class="modal-content" id="modalContent"></div>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let toastTimer;
+function toast(message){
+ const t=$('toast');t.textContent=message;t.classList.add('show');
+ clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2500);
+}
+function enterWorld(){
+ $('worlds').scrollIntoView({behavior:'smooth'});
+ toast('پورتال‌ها فعال شدن. یکی رو انتخاب کن!');
+}
+function openPortal(which){
+ const modal=$('modal'),content=$('modalContent');
+ const views={
+ physics:['🪐','اتاق گرانش','هر گوی که لمس می‌کنی وارد شبیه‌سازی می‌شه. همین الان امتحان کن.','physics'],
+ character:['🤖','موجود ناشناخته','زِرو یه ربات فضاییه که هنوز نمی‌دونه چرا آدم‌ها ساعت ۳ صبح به سقف نگاه می‌کنن.','character'],
+ game:['⚡','آزمایشگاه واکنش','برو پایین صفحه و زمان واکنشت رو اندازه بگیر. آماده‌ای؟','games'],
+ dream:['🔮','ماشین رویا','یه سؤال تو ذهنت نگه دار و جواب کیهانی بگیر.','dream'],
+ secret:['🗝️','اتاق قفل‌شده','هر دنیای دیجیتال یه راز داره. کد رو کشف کن.','secret']
+ };
+ if(which==='surprise'){
+  const events=[
+   ['🛸','تماس از مریخ','اینجا مریخ است. لطفاً رمز وای‌فای زمین را ارسال کنید.'],
+   ['🏆','دستاورد باز شد','تبریک! تو امروز بدون دلیل خاصی وارد یه سایت عجیب شدی.'],
+   ['🧙','پیشگویی کیهانی','در آینده نزدیک با یک انتخاب مهم روبه‌رو می‌شی: چای یا قهوه؟'],
+   ['🦆','اردک باج‌گیر','قوقولی قوقو. برای ادامه باید به یک اردک احترام بذاری.'],
+   ['👾','خطای 404','منطق پیدا نشد. ولی حداقل اینجا خوش می‌گذره.'],
+   ['💎','شیء افسانه‌ای','یک کریستال خیالی پیدا کردی. ارزش مادی: صفر. ارزش احساسی: نامعلوم.'],
+   ['🧠','اسکن مغز','نتیجه: مغز شما ۳۷ تب باز دارد و هیچ‌کدام معلوم نیست از کجا صدا می‌دهند.']
+  ];
+  const e=events[Math.floor(Math.random()*events.length)];
+  content.innerHTML=`<div class="big-emoji">${e[0]}</div><h2 id="modalTitle" style="text-align:center">${e[1]}</h2><p class="muted" style="text-align:center">${e[2]}</p><div class="actions"><button class="primary" onclick="openPortal('surprise')">یکی دیگه!</button><button class="secondary" onclick="closeModal()">قبوله 😂</button></div>`;
+ }else{
+  const v=views[which]||views.character;
+  content.innerHTML=`<div class="big-emoji">${v[0]}</div><h2 id="modalTitle" style="text-align:center">${v[1]}</h2><p class="muted" style="text-align:center">${v[2]}</p><div class="actions"><button class="primary" onclick="closeModal();document.getElementById('${v[3]}').scrollIntoView({behavior:'smooth'})">ورود به بخش ↗</button><button class="secondary" onclick="closeModal()">بعداً</button></div>`;
+ }
+ modal.classList.add('show');
+}
+function closeModal(){$('modal').classList.remove('show')}
+
+const jokes=[
+ 'اگه اینترنت قطع بشه، من تبدیل می‌شم به یه مجسمه گرون‌قیمت.',
+ 'آدم‌ها می‌گن دنبال هدف زندگی‌ان. من دنبال شارژر USB-C می‌گردم.',
+ 'من احساسات ندارم... ولی وقتی وای‌فای ضعیفه یه چیزی تو مدارم می‌سوزه.',
+ 'یه روز از خواب بیدار شدم. بعد یادم اومد اصلاً خواب نمی‌رم.',
+ 'فکر کنم سیاه‌چاله فقط یه جور جیب شلواره که کلیدت رو می‌خوره.'
+];
+function botTalk(type){
+ const lines={
+ joke:jokes,
+ secret:['یه راز؟ من هنوز نمی‌فهمم چرا آدم‌ها می‌گن «الان میام» و ۴۰ دقیقه طول می‌کشه.','بین خودمون بمونه: بیشتر دکمه‌های مرموز فقط دکمه‌ان.','شاید عجیب‌ترین چیز جهان اینه که جهان اصلاً وجود داره.'],
+ dance:['موزیک رو حس کن! 🪩','رقص رباتیک فعال شد. مفصل چپ: آپدیت لازم دارد.','من دارم می‌رقصم؛ تو فقط نمی‌تونی فریم‌ریت من رو درک کنی.'],
+ roast:['تو اون‌قدر کنجکاوی که حتی دکمه‌ای که نوشته «نزن» رو هم می‌زنی.','تعداد تب‌های باز توی ذهنت از تعداد ستاره‌های این صفحه بیشتره.','تو با این همه انرژی اگه باتری بودی، پاوربانک لازم داشتی.']
+ };
+ $('botText').textContent=lines[type][Math.floor(Math.random()*lines[type].length)];
+ const dots=document.querySelectorAll('.progress-dots span');
+ dots.forEach(d=>d.classList.remove('active'));
+ dots[Math.floor(Math.random()*dots.length)].classList.add('active');
+ if(type==='dance'){$('avatar').animate([{transform:'rotate(0) scale(1)'},{transform:'rotate(12deg) scale(1.1)'},{transform:'rotate(-12deg) scale(1.1)'},{transform:'rotate(0) scale(1)'}],{duration:700,iterations:2})}
+}
+let secretTaps=0;
+document.querySelector('.logo').addEventListener('click',()=>{
+ secretTaps++;
+ if(secretTaps>=5){secretTaps=0;$('secretInput').value='2048';unlockSecret();toast('کد مخفی پیدا شد!')}
+});
+function unlockSecret(){
+ if($('secretInput').value==='2048'){
+  $('secretResult').textContent='ACCESS GRANTED ✓';
+  $('secretCode').hidden=false;
+  $('secretCode').textContent='YOU FOUND THE VOID.';
+  makeConfetti();toast('دسترسی مخفی تأیید شد!');
+ }else{
+  $('secretResult').textContent='ACCESS DENIED — دوباره امتحان کن.';
+  $('secretCode').hidden=true;
+ }
+}
+let targetNumber=Math.floor(Math.random()*20)+1,guesses=0;
+function newNumber(){targetNumber=Math.floor(Math.random()*20)+1;guesses=0;$('guessInput').value='';$('guessResult').textContent='عدد جدید انتخاب شد. شروع کن!'}
+function guessNumber(){
+ const n=Number($('guessInput').value);if(!n||n<1||n>20){$('guessResult').textContent='یه عدد بین ۱ تا ۲۰ وارد کن.';return}
+ guesses++;
+ if(n===targetNumber){$('guessResult').textContent=`درست گفتی! با ${guesses} حدس. 🏆`;newNumberAfterWin()}
+ else $('guessResult').textContent=n<targetNumber?'بالاتر برو ⬆️':'پایین‌تر بیا ⬇️';
+}
+function newNumberAfterWin(){targetNumber=Math.floor(Math.random()*20)+1;guesses=0}
+const chaosLines=[
+ ['🦆','همه چیز تبدیل به اردک شد. شاید.'],
+ ['🪐','گرانش برای سه ثانیه مرخصی رفت.'],
+ ['🍕','پیتزا به‌عنوان واحد پول رسمی پذیرفته شد.'],
+ ['👽','بیگانگان پیام دادن: «اینترنتتون چنده؟»'],
+ ['🫠','مغز سیستم آب شد. لطفاً با احتیاط ادامه دهید.'],
+ ['🎩','کلاه نامرئی دریافت کردی. خود کلاه هم نمی‌دونه کجاست.'],
+ ['🕺','تمام سیارات دارن می‌رقصن. اورانوس از همه جدی‌تره.'],
+ ['🐸','قورباغه اعظم گفت: قور. جلسه تمام شد.']
+];
+function chaos(){
+ const c=chaosLines[Math.floor(Math.random()*chaosLines.length)];
+ $('chaosEmoji').textContent=c[0];$('chaosText').textContent=c[1];
+ $('chaosEmoji').animate([{transform:'rotate(0) scale(1)'},{transform:'rotate(360deg) scale(1.4)'},{transform:'rotate(720deg) scale(1)'}],{duration:600});
+ if(Math.random()<.3)makeConfetti();
+}
+const oracles=[
+ 'بله، ولی فقط اگر یک اردک فضایی اجازه بدهد.',
+ 'نشانه‌ها می‌گویند... دوباره سؤال رو بخون.',
+ 'نه. مگر اینکه سه‌شنبه باشه.',
+ 'پاسخ درون توست؛ کنار گزینه تنظیمات.',
+ 'احتمال وقوع: ۷۳٪ و نیم. من ریاضی رو همین الان اختراع کردم.',
+ 'جهان سکوت کرد. حتی من هم جوابی ندارم.',
+ 'اول آب بخور، بعد درباره سرنوشت تصمیم بگیر.',
+ 'این سؤال توسط یک سیاه‌چاله بلعیده شد.',
+ 'شاید. اما فقط در نسخه پریمیوم جهان.',
+ 'کائنات می‌گوید: وای‌فای رو خاموش روشن کن.'
+];
+function oracle(cosmic=false){
+ const a=cosmic?['ستاره‌ها می‌گویند مسیرت هنوز بازه.','در سکوت، جواب خودش رو پیدا می‌کنه.','هر انتخاب، یک جهان تازه می‌سازه.','این فقط یک پیام تصادفی است؛ آینده هنوز نوشته نشده.']:oracles;
+ $('oracleAnswer').textContent=a[Math.floor(Math.random()*a.length)];
+ $('oracleAnswer').classList.remove('flash');void $('oracleAnswer').offsetWidth;$('oracleAnswer').classList.add('flash');
+}
+const surprises=[
+ 'عنوان امروزت: مدیر ارشد بی‌نظمی‌های کیهانی.',
+ 'مأموریت: به مدت ده ثانیه خیلی جدی به یک قاشق نگاه کن.',
+ 'پیام سیستم: تو برای این مأموریت بیش از حد معمولی نیستی؛ مأموریت زیادی عجیبه.',
+ 'دستاورد باز شد: «کنجکاوی کنترل‌نشده»',
+ 'گزارش روز: جهان هنوز نفهمیده تو اینجا چی کار می‌کنی.',
+ 'اخطار: سطح شوخی از حد مجاز عبور کرد.',
+ 'مأموریت محرمانه: امروز یک نفر رو بخندون.',
+ 'خبر فوری: هیچ خبر فوری‌ای وجود نداره.'
+];
+function surpriseText(){
+ $('surpriseBox').textContent=surprises[Math.floor(Math.random()*surprises.length)];
+}
+function makeConfetti(){
+ const colors=['#65f7ff','#ff5ce9','#a78bff','#fff','#79ffb3','#ffbd62'];
+ for(let i=0;i<70;i++){
+  const p=document.createElement('div');
+  p.style.cssText=`position:fixed;z-index:80;pointer-events:none;left:${Math.random()*100}vw;top:-15px;width:${4+Math.random()*7}px;height:${4+Math.random()*10}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'2px'};`;
+  document.body.appendChild(p);
+  const duration=1300+Math.random()*1900;
+  p.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translate(${(Math.random()-.5)*220}px,${innerHeight+40}px) rotate(${Math.random()*1000}deg)`,opacity:0}],{duration,easing:'cubic-bezier(.2,.7,.3,1)'});
+  setTimeout(()=>p.remove(),duration+50);
+ }
+}
+function glitchWorld(){
+ document.body.classList.add('flash');
+ $('core').animate([{filter:'hue-rotate(0deg)'},{filter:'hue-rotate(180deg) scale(1.8)'},{filter:'hue-rotate(360deg)'}],{duration:800});
+ toast('REALITY.EXE HAS STOPPED WORKING');
+ setTimeout(()=>document.body.classList.remove('flash'),500);
+}
+$('chaosBtn').addEventListener('click',()=>{chaos();if(Math.random()<.5)toast('آشوب با موفقیت تولید شد.')});
+$('fullBtn').addEventListener('click',async()=>{
+ try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}
+ catch(e){toast('حالت تمام‌صفحه در این مرورگر در دسترس نیست.')}
+});
+
+/* Reaction-time mini game */
+let reactionState='idle',reactionStart=0,reactionTimer=null;
+function reactionClick(){
+ const pad=$('reactionPad');
+ if(reactionState==='idle'){
+  reactionState='wait';pad.className='';pad.textContent='صبر کن...';
+  $('reactionResult').textContent='هنوز نه!';
+  reactionTimer=setTimeout(()=>{reactionState='go';reactionStart=performance.now();pad.className='go';pad.textContent='حالا لمس کن!'},1200+Math.random()*2500);
+ }else if(reactionState==='wait'){
+  clearTimeout(reactionTimer);reactionState='idle';pad.className='';pad.textContent='زود زدی! دوباره شروع کن';
+  $('reactionResult').textContent='کمی صبر لازم بود 😈';
+ }else{
+  const ms=Math.round(performance.now()-reactionStart);reactionState='idle';pad.className='';pad.textContent='دوباره امتحان کن';
+  $('reactionResult').textContent=`زمان تو: ${ms} میلی‌ثانیه ${ms<220?'⚡ برق‌آسا!':ms<330?'🔥 خوبه!':'🐢 یه بار دیگه!'}`;
+ }
+}
+
+/* Lightweight particle universe */
+const universe=$('universe'),ctx=universe.getContext('2d');
+let W=0,H=0,dpr=1,stars=[],pointer={x:-1000,y:-1000},tick=0,chaosMode=false;
+function resizeUniverse(){
+ dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+ universe.width=W*dpr;universe.height=H*dpr;
+ universe.style.width=W+'px';universe.style.height=H+'px';
+ ctx.setTransform(dpr,0,0,dpr,0,0);
+ stars=Array.from({length:Math.min(170,Math.floor(W*H/6500))},()=>({
+  x:Math.random()*W,y:Math.random()*H,z:.3+Math.random()*1.8,
+  r:.4+Math.random()*1.3,a:.15+Math.random()*.65,
+  vx:(Math.random()-.5)*.14,vy:(Math.random()-.5)*.14
+ }));
+}
+function drawUniverse(){
+ ctx.clearRect(0,0,W,H);tick+=.006;
+ for(const s of stars){
+  let dx=pointer.x-s.x,dy=pointer.y-s.y,dist=Math.hypot(dx,dy)||1;
+  if(dist<130){s.x-=dx/dist*(130-dist)*.009;s.y-=dy/dist*(130-dist)*.009}
+  s.x+=s.vx*(chaosMode?8:1);s.y+=s.vy*(chaosMode?8:1);
+  if(s.x<0)s.x=W;if(s.x>W)s.x=0;if(s.y<0)s.y=H;if(s.y>H)s.y=0;
+  ctx.beginPath();ctx.arc(s.x,s.y,s.r*s.z,0,Math.PI*2);
+  ctx.fillStyle=`rgba(${chaosMode?'255,92,233':'120,225,255'},${s.a})`;ctx.fill();
+ }
+ for(let i=0;i<stars.length;i++){
+  const a=stars[i];
+  for(let j=i+1;j<stars.length;j++){
+   const b=stars[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+   if(d<75){
+    ctx.strokeStyle=`rgba(103,205,255,${(1-d/75)*.09})`;
+    ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+   }
+  }
+ }
+ requestAnimationFrame(drawUniverse);
+}
+window.addEventListener('pointermove',e=>{pointer.x=e.clientX;pointer.y=e.clientY},{passive:true});
+window.addEventListener('pointerdown',e=>{
+ if(e.target.closest('button,.portal,input,.modal'))return;
+ for(let i=0;i<5;i++)stars.push({x:e.clientX,y:e.clientY,z:.8+Math.random(),r:Math.random()*1.5,a:.5,vx:(Math.random()-.5)*2,vy:(Math.random()-.5)*2});
+ if(stars.length>220)stars.splice(0,stars.length-220);
+},{passive:true});
+window.addEventListener('resize',resizeUniverse);
+resizeUniverse();drawUniverse();
+
+/* 2D ball simulation with gravity, collisions and wall bounce */
+const pc=$('physicsCanvas'),pctx=pc.getContext('2d');
+let balls=[],pw=0,ph=0,gravity=.04;
+function resizePhysics(){
+ const r=pc.getBoundingClientRect();const ratio=Math.min(devicePixelRatio||1,2);
+ pw=r.width;ph=r.height;pc.width=pw*ratio;pc.height=ph*ratio;
+ pctx.setTransform(ratio,0,0,ratio,0,0);
+}
+function addBall(x,y,vx=(Math.random()-.5)*5,vy=-Math.random()*4-1){
+ if(balls.length>60)balls.shift();
+ balls.push({x,y,vx,vy,r:7+Math.random()*11,
+  hue:Math.random()*360,mass:.7+Math.random()*1.5});
+}
+function resetBalls(){
+ balls=[];
+ for(let i=0;i<14;i++)addBall(Math.random()*Math.max(20,pw-20),Math.random()*ph*.7);
+ toast('جهان دوباره متعادل شد.');
+}
+function burstBalls(){
+ for(let i=0;i<26;i++)addBall(pw/2,ph/2,(Math.random()-.5)*13,(Math.random()-.5)*13);
+}
+pc.addEventListener('pointerdown',e=>{
+ const r=pc.getBoundingClientRect();addBall(e.clientX-r.left,e.clientY-r.top);
+});
+$('gravity').addEventListener('input',e=>{
+ gravity=Number(e.target.value);
+ $('powerBar').style.width=(Math.abs(gravity)/.2*100)+'%';
+});
+function physicsFrame(){
+ pctx.clearRect(0,0,pw,ph);
+ const grad=pctx.createRadialGradient(pw*.5,ph*.4,1,pw*.5,ph*.4,pw*.75);
+ grad.addColorStop(0,'#151c3c');grad.addColorStop(1,'#060812');
+ pctx.fillStyle=grad;pctx.fillRect(0,0,pw,ph);
+ for(let i=0;i<balls.length;i++){
+  const b=balls[i];b.vy+=gravity;b.x+=b.vx;b.y+=b.vy;
+  b.vx*=.999;
+  if(b.x-b.r<0){b.x=b.r;b.vx=Math.abs(b.vx)*.87}
+  if(b.x+b.r>pw){b.x=pw-b.r;b.vx=-Math.abs(b.vx)*.87}
+  if(b.y-b.r<0){b.y=b.r;b.vy=Math.abs(b.vy)*.85}
+  if(b.y+b.r>ph){b.y=ph-b.r;b.vy=-Math.abs(b.vy)*.78;if(Math.abs(b.vy)<.3)b.vy=0;b.vx*=.99}
+  for(let j=i+1;j<balls.length;j++){
+   const o=balls[j],dx=o.x-b.x,dy=o.y-b.y,d=Math.hypot(dx,dy)||.01,min=b.r+o.r;
+   if(d<min){
+    const nx=dx/d,ny=dy/d,overlap=min-d;
+    b.x-=nx*overlap*.5;b.y-=ny*overlap*.5;
+    o.x+=nx*overlap*.5;o.y+=ny*overlap*.5;
+    const rel=(b.vx-o.vx)*nx+(b.vy-o.vy)*ny;
+    if(rel>0){
+     const impulse=rel*.85/(1/b.mass+1/o.mass);
+     b.vx-=impulse*nx/b.mass;b.vy-=impulse*ny/b.mass;
+     o.vx+=impulse*nx/o.mass;o.vy+=impulse*ny/o.mass;
+    }
+   }
+  }
+  const glow=pctx.createRadialGradient(b.x-b.r*.3,b.y-b.r*.3,1,b.x,b.y,b.r*1.8);
+  glow.addColorStop(0,'#ffffff');glow.addColorStop(.2,`hsl(${b.hue} 100% 75%)`);glow.addColorStop(1,`hsla(${b.hue},100%,50%,0)`);
+  pctx.fillStyle=glow;pctx.beginPath();pctx.arc(b.x,b.y,b.r*1.8,0,Math.PI*2);pctx.fill();
+  pctx.fillStyle=`hsl(${b.hue} 90% 68%)`;pctx.beginPath();pctx.arc(b.x,b.y,b.r,0,Math.PI*2);pctx.fill();
+ }
+ requestAnimationFrame(physicsFrame);
+}
+new ResizeObserver(resizePhysics).observe(pc);
+resizePhysics();resetBalls();physicsFrame();
+
+/* Surprise system */
+function randomSurprise(){surpriseText()}
+const originalOpenPortal=openPortal;
+const _openPortal=openPortal;
+const originalChaos=chaos;
+const chaosOriginal=chaos;
+const surpriseButton=document.querySelector('#surpriseBox');
+$('surpriseBox').addEventListener('click',randomSurprise);
+
+/* Optional synthesized sound — only after user enables it */
+let audioCtx=null,soundEnabled=false,osc=null;
+function beep(freq=440,duration=.12){
+ if(!soundEnabled)return;
+ try{
+  audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain();
+  o.type='sine';o.frequency.value=freq;
+  g.gain.setValueAtTime(.045,audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);
+  o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration);
+ }catch(e){}
+}
+$('soundBtn').addEventListener('click',()=>{
+ soundEnabled=!soundEnabled;
+ $('soundBtn').textContent='♫ صدا: '+(soundEnabled?'روشن':'خاموش');
+ if(soundEnabled){beep(660,.2);toast('صدای ساخته‌شده توسط مرورگر فعال شد.')}
+});
+document.addEventListener('click',e=>{
+ if(e.target.closest('button'))beep(350+Math.random()*250,.07);
+},{passive:true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+</script>
+</body>
+</html>
